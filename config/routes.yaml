@@ -1,3 +1,42 @@
-homepage:
- path: /
- controller: App\Controller\IndexController::home
+# config/routes.yaml
+
+article_list:
+  path: /
+  controller: App\Controller\IndexController::home
+
+save_article:
+  path: /article/save
+  controller: App\Controller\IndexController::save
+
+new_article:
+  path: /article/new
+  controller: App\Controller\IndexController::new
+
+article_show:
+  path: /article/{id}
+  controller: App\Controller\IndexController::show
+
+edit_article:
+  path: /article/edit/{id}
+  controller: App\Controller\IndexController::edit
+  methods: [GET, POST]
+
+delete_article:
+  path: /article/delete/{id}
+  controller: App\Controller\IndexController::delete
+  methods: [DELETE]
+
+new_category:
+  path: /category/newCat
+  controller: App\Controller\IndexController::newCategory
+  methods: [GET, POST]
+
+article_par_cat:
+  path: /art_cat/
+  controller: App\Controller\IndexController::articlesParCategorie
+  methods: [GET, POST]
+
+article_par_prix: 
+  path: /art_prix/
+  controller: App\Controller\IndexController::articlesParPrix
+  methods: [GET, POST]

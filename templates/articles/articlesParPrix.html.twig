@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
-{% block title%} Liste des Articles{% endblock %}
+{% block title%} Liste des Articles par prix{% endblock %}
 {% block body %}
 {{ form_start(form) }}
 <div class="form-row align-items-end" >
 <div class="col">
- {{ form_row(form.nom) }}
+ {{ form_row(form.minPrice) }}
+</div>
+<div class="col">
+ {{ form_row(form.maxPrice) }}
 </div>
  <div class="col">
  <div class="form-group">
@@ -31,8 +34,10 @@
  <td>{{ article.category.titre }}</td>
  <td>
  <a href="/article/{{ article.id }}" class="btn btn-dark">Détails</a>
-<a href="/article/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
-<a href="/article/delete/{{ article.id }}" class="btn btn-danger"onclick="return confirm('Etesvous sûr de supprimer cet article?');">Supprimer</a> </td>
+ <a href="/article/edit/{{ article.id }}" class="btn btn-dark">Modifier</a>
+ <a href="/article/delete/{{ article.id }}" class="btn btn-danger"
+ onclick="return confirm('Etesvous sûr de supprimer cet article?');">Supprimer</a>
+ </td>
  </tr>
  {% endfor %}
  </tbody>
@@ -41,8 +46,3 @@
  <p>Aucun articles</p>
  {% endif %}
 {% endblock %}
-{% block javascripts %}
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-{% endblock %}
-
